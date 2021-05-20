@@ -1,0 +1,5 @@
+<resources>
+  <style name="UPPay">
+    <item name="android:dialogTheme">@android:style/Theme.Dialog</item>
+  </style>
+</resources>
