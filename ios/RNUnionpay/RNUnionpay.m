@@ -60,7 +60,9 @@
         else if([code isEqualToString:@"cancel"]) { //交易取消
             [body setValue:@"用户取消了支付" forKey:@"msg"];
         }
-        [self sendEventWithName:@"UnionPayResponse" body:body];
+        if (code != nil) {
+            [self sendEventWithName:@"UnionPayResponse" body:body];
+        }
     }];
     return YES;
 }
