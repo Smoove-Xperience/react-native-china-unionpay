@@ -46,10 +46,17 @@ public class RCTUnionpayModule extends ReactContextBaseJavaModule implements Act
         }
         WritableMap response = Arguments.createMap();
         String msg = "";
+        
+        // Return if no extras on the intent
+        Bundle extras = data.getExtras();
+        if (extras == null) {
+          return;
+        }
+
         /*
          * 支付控件返回字符串:success、fail、cancel 分别代表支付成功，支付失败，支付取消
          */
-        String str = data.getExtras().getString("pay_result");
+        String str = extras.getString("pay_result");
 
         // Return if pay result is null
         if (str == null) {
